@@ -49,12 +49,12 @@ public class Loops {
   }
 
   //    Napisz metodę, która pobierze tablicę liczb całkowitych i wyświetli ją w postaci "[liczba, liczba, liczba]"
-  public String printInts(int[] intTable) {
+  public String printInts(int[] intArray) {
     String intsString = "[";
-    for (int i = 0; i < intTable.length - 1; i++) {
-      intsString = intsString + intTable[i] + ", ";
+    for (int i = 0; i < intArray.length - 1; i++) {
+      intsString = intsString + intArray[i] + ", ";
     }
-    intsString += intTable[intTable.length - 1] + "]";
+    intsString += intArray[intArray.length - 1] + "]";
     return intsString;
   }
 
