@@ -1,21 +1,29 @@
-package Basics;
+package basic;
 
 public class Loops {
 
   //    Utwórz metodę pobierającą dodatnią liczbę całkowitą X, która wyświetli na ekranie liczby od zera do X
-  public void printIntsUntil(int x) {
-    for (int i = 0; i <= x; i++) {
-      System.out.println(i);
+  public String printIntsUntil(int x) {
+    if (x <= 0) {
+      return "Method only works for positive numbers.";
+    } else {
+      String listOfInts = "";
+      for (int i = 0; i <= x; i++) {
+        listOfInts += i + " ";
+      }
+      return listOfInts;
     }
   }
 
   //    Utwórz metodę, która pobierze liczbę i wypisze każdy znak w osobnej linii zaczynając
 //    od ostatniej cyfry (np. dla liczby 123 będą to trzy linie z 3, 2 i 1)
-  public void turnedAroundIntsSeparateLines(int a) {
+  public String turnedAroundIntsSeparateLines(int a) {
+    String separateTurnedAround = "";
     char[] separateInt = String.valueOf(a).toCharArray();
     for (int i = separateInt.length - 1; i >= 0; i--) {
-      System.out.println(separateInt[i]);
+      separateTurnedAround += separateInt[i] + "\n";
     }
+    return separateTurnedAround;
   }
 
   //    Utwórz metodę, która jako argument pobierze obiekt klasy String i zwróci "odwrócony" argument.
@@ -28,11 +36,17 @@ public class Loops {
 
   //    Utwórz metodę, która pobierze liczbę oraz zwróci ją w formie binarnej (2 => "10", 4 => "100", 5 => "101", itd.).
   public String intToBinary(int a) {
-    String binary = "";
-    for (int i = a; i > 0; i = i / 2) {
-      binary += i % 2;
+    if (a < 0) {
+      throw new RuntimeException("This method only works for positive numbers.");
+    } else if (a == 0) {
+      return "0";
+    } else {
+      String binary = "";
+      for (int i = a; i > 0; i = i / 2) {
+        binary += i % 2;
+      }
+      return turnedAroundString(binary).toString();
     }
-    return turnedAroundString(binary).toString();
   }
 
   //    Utwórz metodę, pobierającą łańcuch znaków, która sprawdzi czy jest on palindromem. Np. "kajak" jest
