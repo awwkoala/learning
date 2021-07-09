@@ -1,12 +1,16 @@
 package basic;
 
-import org.testng.Assert;
+import org.assertj.core.api.Assertions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class LoopsTest {
 
   private Loops loops;
+  private final int a = 5;
+  private final int b = 0;
+  private final int c = -5;
+  private final int d = 123;
 
   @BeforeClass
   public void beforeClass() {
@@ -15,102 +19,95 @@ public class LoopsTest {
 
   @Test
   public void testPrintIntsUntilPositiveNum() {
-    int a = 5;
     String expectedString = "0 1 2 3 4 5 ";
     String actualString = loops.printIntsUntil(a);
-    Assert.assertEquals(actualString, expectedString);
+    Assertions.assertThat(actualString).describedAs("integers from 0 to " + a + " are printed")
+      .isEqualTo(expectedString);
   }
 
-  @Test
+  @Test(expectedExceptions = {IllegalArgumentException.class})
   public void testPrintIntsUntilZero() {
-    int a = 0;
-    String expectedString = "Method only works for positive numbers.";
-    String actualString = loops.printIntsUntil(a);
-    Assert.assertEquals(actualString, expectedString);
+    loops.printIntsUntil(b);
   }
 
-  @Test
+  @Test(expectedExceptions = {IllegalArgumentException.class})
   public void testPrintIntsUntilNegativeNum() {
-    int a = -5;
-    String expectedString = "Method only works for positive numbers.";
-    String actualString = loops.printIntsUntil(a);
-    Assert.assertEquals(actualString, expectedString);
+    loops.printIntsUntil(c);
   }
 
   @Test
   public void testTurnedAroundIntsSeparateLines() {
-    int a = 1234;
-    String expectedResult = "4\n3\n2\n1\n";
-    String actualResult = loops.turnedAroundIntsSeparateLines(a);
-    Assert.assertEquals(actualResult, expectedResult);
+    String expectedResult = "3\n2\n1\n";
+    String actualResult = loops.turnedAroundIntsSeparateLines(d);
+    Assertions.assertThat(actualResult).describedAs("every character of the integer " + d + "is printed " +
+      "on a separate line").isEqualTo(expectedResult);
   }
 
   @Test
   public void testTurnedAroundIntsSeparateLinesOnlyOne() {
-    int a = 3;
-    String expectedResult = "3\n";
+    String expectedResult = "5\n";
     String actualResult = loops.turnedAroundIntsSeparateLines(a);
-    Assert.assertEquals(actualResult, expectedResult);
+    Assertions.assertThat(actualResult).describedAs("provided integer with one character is printed " +
+      "on a separate line").isEqualTo(expectedResult);
   }
 
   @Test
   public void testTurnedAroundString() {
     String word = "abcdef";
-    StringBuffer expectedString = new StringBuffer("fedcba");
-    StringBuffer actualString = loops.turnedAroundString(word);
-    Assert.assertEquals(actualString.toString(), expectedString.toString());
+    String expectedString = "fedcba";
+    String actualString = loops.turnedAroundString(word);
+    Assertions.assertThat(actualString).describedAs(word + " is reversed").isEqualTo(expectedString);
   }
 
   @Test
   public void testIntToBinaryPositiveNum() {
-    int a = 12;
     String expectedBinary = Integer.toBinaryString(a);
     String actualBinary = loops.intToBinary(a);
-    Assert.assertEquals(actualBinary, expectedBinary);
+    Assertions.assertThat(actualBinary).describedAs(a + " is converted to binary").isEqualTo(expectedBinary);
   }
 
   @Test
   public void testIntToBinaryZero() {
-    int a = 0;
-    String expectedBinary = Integer.toBinaryString(a);
-    String actualBinary = loops.intToBinary(a);
-    Assert.assertEquals(actualBinary, expectedBinary);
+    String expectedBinary = Integer.toBinaryString(b);
+    String actualBinary = loops.intToBinary(b);
+    Assertions.assertThat(actualBinary).describedAs(b + " is converted to 0").isEqualTo(expectedBinary);
   }
 
   @Test(expectedExceptions = {RuntimeException.class})
   public void testIntToBinaryNegativeNum() {
-    int a = -12;
-    String actualBinary = loops.intToBinary(a);
+    loops.intToBinary(c);
   }
 
   @Test
   public void testPalindromeTrueEven() {
     String palindrome = "abccba";
-    Assert.assertTrue(loops.palindrome(palindrome));
+    Assertions.assertThat(loops.palindrome(palindrome)).describedAs(palindrome + " is a palindrome").isTrue();
   }
 
   @Test
   public void testPalindromeTrueOdd() {
     String palindrome = "abcba";
-    Assert.assertTrue(loops.palindrome(palindrome));
+    Assertions.assertThat(loops.palindrome(palindrome)).describedAs(palindrome + " is a palindrome").isTrue();
   }
 
   @Test
   public void testPalindromeFalseEven() {
     String notPalindrome = "abcdef";
-    Assert.assertFalse(loops.palindrome(notPalindrome));
+    Assertions.assertThat(loops.palindrome(notPalindrome)).describedAs(notPalindrome + " is not a palindrome")
+      .isFalse();
   }
 
   @Test
   public void testPalindromeFalseOdd() {
     String notPalindrome = "abcde";
-    Assert.assertFalse(loops.palindrome(notPalindrome));
+    Assertions.assertThat(loops.palindrome(notPalindrome)).describedAs(notPalindrome + " is not a palindrome")
+      .isFalse();
   }
 
   @Test
   public void testPalindromeEmpty() {
     String palindrome = "";
-    Assert.assertTrue(loops.palindrome(palindrome));
+    Assertions.assertThat(loops.palindrome(palindrome)).describedAs("empty String is a palindrome").isTrue();
   }
 
   @Test
@@ -118,7 +115,8 @@ public class LoopsTest {
     int[] array = {1, 2, 3, 4, 5};
     String expectedResult = "[1, 2, 3, 4, 5]";
     String actualResult = loops.printInts(array);
-    Assert.assertEquals(actualResult, expectedResult);
+    Assertions.assertThat(actualResult).describedAs("integers array is printed as " + expectedResult)
+      .isEqualTo(expectedResult);
   }
 
   @Test
@@ -126,7 +124,8 @@ public class LoopsTest {
     int[] array = {1};
     String expectedResult = "[1]";
     String actualResult = loops.printInts(array);
-    Assert.assertEquals(actualResult, expectedResult);
+    Assertions.assertThat(actualResult).describedAs("integers array with only one component is printed as " +
+      expectedResult).isEqualTo(expectedResult);
   }
 
   @Test
@@ -134,7 +133,8 @@ public class LoopsTest {
     int[] testingArray = {5, 4, 3, 2, 1};
     int[] expectedArray = {1, 2, 3, 4, 5};
     int[] actualArray = loops.sortArray(testingArray);
-    Assert.assertEquals(actualArray, expectedArray);
+    Assertions.assertThat(actualArray).describedAs("integers array with only positive numbers is sorted " +
+      "from minimum to maximum value").isEqualTo(expectedArray);
   }
 
   @Test
@@ -142,7 +142,8 @@ public class LoopsTest {
     int[] testingArray = {-1, -2, -3, -4, -5};
     int[] expectedArray = {-5, -4, -3, -2, -1};
     int[] actualArray = loops.sortArray(testingArray);
-    Assert.assertEquals(actualArray, expectedArray);
+    Assertions.assertThat(actualArray).describedAs("integers array with only negative numbers is sorted " +
+      "from minimum to maximum value").isEqualTo(expectedArray);
   }
 
   @Test
@@ -150,7 +151,8 @@ public class LoopsTest {
     int[] testingArray = {2, 1, 0, -2, -1};
     int[] expectedArray = {-2, -1, 0, 1, 2};
     int[] actualArray = loops.sortArray(testingArray);
-    Assert.assertEquals(actualArray, expectedArray);
+    Assertions.assertThat(actualArray).describedAs("integers array with both negative and positive numbers " +
+      "is sorted from minimum to maximum value").isEqualTo(expectedArray);
   }
 
 }

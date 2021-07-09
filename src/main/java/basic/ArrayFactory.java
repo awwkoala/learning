@@ -13,18 +13,16 @@ public class ArrayFactory {
 
   public int[] oneDimension() {
     if (x < 0) {
-      throw new RuntimeException("Array can't have less than zero dimensions.");
-    } else {
-      return new int[x];
+      throw new NegativeArraySizeException("Array can't have less than zero dimensions.");
     }
+    return new int[x];
   }
 
   public int[][] twoDimension() {
     if (x < 0) {
-      throw new RuntimeException("Array can't have less than zero dimensions.");
-    } else {
-      return new int[x][x];
+      throw new NegativeArraySizeException("Array can't have less than zero dimensions.");
     }
+    return new int[x][x];
   }
 
   public int[][] matrix() {

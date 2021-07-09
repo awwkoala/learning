@@ -13,14 +13,13 @@ public class ArrayUtils {
   //    Napisz metodę pobierającą trójelementową tablicę liczb, która zwróci tablicę zawierającą te same elementy w odwróconej kolejności
   public int[] turnAroundThreeInts(int[] arrayOfThree) {
     if (arrayOfThree.length != 3) {
-      throw new RuntimeException("This method only works for arrays of three elements.");
-    } else {
-      int[] arrayTurned = new int[3];
-      for (int i = 0; i <= arrayOfThree.length - 1; i++) {
-        arrayTurned[i] = arrayOfThree[arrayOfThree.length - 1 - i];
-      }
-      return arrayTurned;
+      throw new IllegalArgumentException("This method only works for arrays of three elements.");
     }
+    int[] arrayTurned = new int[3];
+    for (int i = 0; i <= arrayOfThree.length - 1; i++) {
+      arrayTurned[i] = arrayOfThree[arrayOfThree.length - 1 - i];
+    }
+    return arrayTurned;
   }
 
 }

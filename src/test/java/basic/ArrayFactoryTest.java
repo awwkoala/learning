@@ -1,6 +1,6 @@
 package basic;
 
-import org.testng.Assert;
+import org.assertj.core.api.Assertions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -9,9 +9,9 @@ public class ArrayFactoryTest {
   private ArrayFactory arrFacPosNum;
   private ArrayFactory arrFacZero;
   private ArrayFactory arrFacNegNum;
-  private int a = 3;
-  private int b = 0;
-  private int c = -3;
+  private final int a = 3;
+  private final int b = 0;
+  private final int c = -3;
 
   @BeforeClass
   public void beforeClass() {
@@ -24,17 +24,17 @@ public class ArrayFactoryTest {
   public void testOneDimensionPositiveNum() {
     int[] expectedArr = new int[a];
     int[] actualArr = arrFacPosNum.oneDimension();
-    Assert.assertEquals(actualArr, expectedArr);
+    Assertions.assertThat(actualArr).describedAs("1D array is created correctly").isEqualTo(expectedArr);
   }
 
   @Test
   public void testOneDimensionZero() {
     int[] expectedArr = new int[b];
     int[] actualArr = arrFacZero.oneDimension();
-    Assert.assertEquals(actualArr, expectedArr);
+    Assertions.assertThat(actualArr).describedAs("empty 1D array is created").isEqualTo(expectedArr);
   }
 
-  @Test(expectedExceptions = {RuntimeException.class})
+  @Test(expectedExceptions = {NegativeArraySizeException.class})
   public void testOneDimensionNegativeNum() {
     arrFacNegNum.oneDimension();
   }
@@ -43,17 +43,17 @@ public class ArrayFactoryTest {
   public void testTwoDimensionPositiveNum() {
     int[][] expectedArr = new int[a][a];
     int[][] actualArr = arrFacPosNum.twoDimension();
-    Assert.assertEquals(actualArr, expectedArr);
+    Assertions.assertThat(actualArr).describedAs("2D array is created correctly").isEqualTo(expectedArr);
   }
 
   @Test
   public void testTwoDimensionZero() {
     int[][] expectedArr = new int[b][b];
     int[][] actualArr = arrFacZero.twoDimension();
-    Assert.assertEquals(actualArr, expectedArr);
+    Assertions.assertThat(actualArr).describedAs("empty 2D array is created").isEqualTo(expectedArr);
   }
 
-  @Test(expectedExceptions = {RuntimeException.class})
+  @Test(expectedExceptions = {NegativeArraySizeException.class})
   public void testTwoDimensionNegativeNum() {
     arrFacNegNum.twoDimension();
   }
@@ -62,17 +62,17 @@ public class ArrayFactoryTest {
   public void testMatrixPositiveNum() {
     int[][] expectedArr = {{1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
     int[][] actualArr = arrFacPosNum.matrix();
-    Assert.assertEquals(actualArr, expectedArr);
+    Assertions.assertThat(actualArr).describedAs("identity matrix is created corretly").isEqualTo(expectedArr);
   }
 
   @Test
   public void testMatrixZero() {
     int[][] expectedArr = {};
     int[][] actualArr = arrFacZero.matrix();
-    Assert.assertEquals(actualArr, expectedArr);
+    Assertions.assertThat(actualArr).describedAs("empty identity matrix is created").isEqualTo(expectedArr);
   }
 
-  @Test(expectedExceptions = {RuntimeException.class})
+  @Test(expectedExceptions = {NegativeArraySizeException.class})
   public void testMatrixNegativeNum() {
     int[][] actualArr = arrFacNegNum.matrix();
   }
