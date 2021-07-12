@@ -1,4 +1,4 @@
-package Figures;
+package com.github.awwkoala.learning.figure;
 
 public class Rectangle implements Figure {
   private final double a;
@@ -11,14 +11,12 @@ public class Rectangle implements Figure {
 
   @Override
   public double getPerimeter() {
-    double perimeter = 2 * a + 2 * b;
-    return perimeter;
+    return 2 * a + 2 * b;
   }
 
   @Override
   public double getArea() {
-    double area = a * b;
-    return area;
+    return a * b;
   }
 
 }

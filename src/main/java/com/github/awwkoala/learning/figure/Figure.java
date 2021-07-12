@@ -1,4 +1,4 @@
-package Figures;
+package com.github.awwkoala.learning.figure;
 
 public interface Figure {
   //    InterfejsyPermalink

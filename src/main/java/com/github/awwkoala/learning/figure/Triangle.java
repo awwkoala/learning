@@ -1,4 +1,4 @@
-package Figures;
+package com.github.awwkoala.learning.figure;
 
 public class Triangle implements Figure {
   //I assume it will always be a right triangle.
@@ -13,14 +13,12 @@ public class Triangle implements Figure {
   @Override
   public double getPerimeter() {
     double c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
-    double perimeter = a + b + c;
-    return perimeter;
+    return a + b + c;
   }
 
   @Override
   public double getArea() {
-    double area = (a * b) / 2;
-    return area;
+    return (a * b) / 2;
   }
 
 }

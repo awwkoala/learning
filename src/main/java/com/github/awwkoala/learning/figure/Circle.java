@@ -1,4 +1,4 @@
-package Figures;
+package com.github.awwkoala.learning.figure;
 
 public class Circle implements Figure {
   private final double r;
@@ -9,14 +9,12 @@ public class Circle implements Figure {
 
   @Override
   public double getPerimeter() {
-    double perimeter = 6.28 * r;
-    return perimeter;
+    return 6.28 * r;
   }
 
   @Override
   public double getArea() {
-    double area = 3.14 * Math.pow(r, 2);
-    return area;
+    return 3.14 * Math.pow(r, 2);
   }
 
 }
