@@ -4,7 +4,7 @@ public class Circle implements Figure {
   private final double r;
 
   public Circle(double r) {
-    if (r<=0) {
+    if (r <= 0) {
       throw new IllegalArgumentException("The radius have to be more than 0.");
     }
     this.r = r;
@@ -12,12 +12,12 @@ public class Circle implements Figure {
 
   @Override
   public double getPerimeter() {
-    return 6.28 * r;
+    return Math.PI * 2 * r;
   }
 
   @Override
   public double getArea() {
-    return 3.14 * Math.pow(r, 2);
+    return Math.PI * Math.pow(r, 2);
   }
 
 }

@@ -43,9 +43,9 @@ public class FigureByUser {
   }
 
   public void printAllFigures(Figure[] figureArray) {
-    for (int i = 0; i < figureArray.length; i++) {
-      System.out.println("Perimeter of the figure is: " + figureArray[i].getPerimeter());
-      System.out.println("Area of the figure is: " + figureArray[i].getArea());
+    for (Figure fig : figureArray) {
+      System.out.println("Perimeter of the figure is: " + fig.getPerimeter());
+      System.out.println("Area of the figure is: " + fig.getArea());
     }
   }
 

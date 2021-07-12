@@ -1,5 +1,6 @@
 package com.github.awwkoala.learning.basic;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class PrimitiveTypes {
@@ -10,23 +11,32 @@ public class PrimitiveTypes {
 //    reprezentację na ekranie
   public void decimalToBinary() {
     System.out.println("Enter the Integer: ");
-    String bin = loops.intToBinary(Integer.parseInt(scan.nextLine()));
-    System.out.println("Binary: " + bin);
+    try {
+      String bin = loops.intToBinary(Integer.parseInt(scan.nextLine()));
+      System.out.println("Binary: " + bin);
+    } catch (java.lang.NumberFormatException e) {
+      System.out.println("Invalid format");
+    }
   }
 
   //    Napisz program, który pobierze od użytkownika liczbę całkowitą N reprezentującą długość tablicy,
 //    a następnie poprosi o N kolejnych liczb uzupełniając nimi wcześniej stworzoną tablicę.
 //    Wyświetl na konsoli tablicę posortowaną w kolejności od najmniejszej do największej liczby,
-  public int[] createArray() {
-    System.out.println("Enter the lenght of your array: ");
-    int n = Integer.parseInt(scan.nextLine());
-    int[] array = new int[n];
-    System.out.println("Enter the numbers one by one: ");
-    for (int i = 0; i < n; i++) {
-      array[i] = Integer.parseInt(scan.nextLine());
+  public void createArray() {
+    int[] array = new int[0];
+    try {
+      System.out.println("Enter the lenght of your array: ");
+      int n = Integer.parseInt(scan.nextLine());
+      array = Arrays.copyOf(array, n);
+      System.out.println("Enter the numbers one by one: ");
+      for (int i = 0; i < n; i++) {
+        array[i] = Integer.parseInt(scan.nextLine());
+      }
+      loops.sortArray(array);
+      System.out.println(Arrays.toString(array));
+    } catch (java.lang.NumberFormatException e) {
+      System.out.println("Invalid format");
     }
-    loops.sortArray(array);
-    return array;
   }
 
   //    Napisz program, który pobierze od użytkownika łańcuch znaków i wyświetli na konsoli jego długość, informację

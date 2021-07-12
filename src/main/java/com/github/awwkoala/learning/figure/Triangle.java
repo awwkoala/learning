@@ -6,7 +6,7 @@ public class Triangle implements Figure {
   private final double b;
 
   public Triangle(double a, double b) {
-    if (a<=0 || b<=0) {
+    if (a <= 0 || b <= 0) {
       throw new IllegalArgumentException("Triangle's legs have to be more than 0.");
     }
     this.a = a;
