@@ -4,6 +4,9 @@ public class Circle implements Figure {
   private final double r;
 
   public Circle(double r) {
+    if (r<=0) {
+      throw new IllegalArgumentException("The radius have to be more than 0.");
+    }
     this.r = r;
   }
 
