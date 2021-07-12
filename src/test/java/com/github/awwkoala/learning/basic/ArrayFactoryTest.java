@@ -1,4 +1,4 @@
-package basic;
+package com.github.awwkoala.learning.basic;
 
 import org.assertj.core.api.Assertions;
 import org.testng.annotations.BeforeClass;

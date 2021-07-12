@@ -1,4 +1,4 @@
-package basic;
+package com.github.awwkoala.learning.basic;
 
 public class Loops {
 

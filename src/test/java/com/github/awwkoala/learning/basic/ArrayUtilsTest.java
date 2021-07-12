@@ -1,4 +1,4 @@
-package basic;
+package com.github.awwkoala.learning.basic;
 
 import org.assertj.core.api.Assertions;
 import org.testng.annotations.BeforeClass;
@@ -44,8 +44,9 @@ public class ArrayUtilsTest {
     int[] array = {1, -2, 3};
     int[] expectedArr = {3, -2, 1};
     int[] actualArr = arrUtils.turnAroundThreeInts(array);
-    Assertions.assertThat(actualArr).describedAs("integers array of three both positive and negative " +
-      "integers is reversed").isEqualTo(expectedArr);
+    Assertions.assertThat(actualArr)
+      .describedAs("integers array of three both positive and negative integers is reversed")
+      .isEqualTo(expectedArr);
   }
 
   @Test(expectedExceptions = {IllegalArgumentException.class})

@@ -1,4 +1,4 @@
-package basic;
+package com.github.awwkoala.learning.basic;
 
 public class ArrayFactory {
   //    Napisz klasę Basics.ArrayFactory, która w konstruktorze pobierze liczbę całkowitą X. Klasa powinna mieć 2 metody:

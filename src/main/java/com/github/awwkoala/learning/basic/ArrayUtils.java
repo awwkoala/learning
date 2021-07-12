@@ -1,4 +1,4 @@
-package basic;
+package com.github.awwkoala.learning.basic;
 
 public class ArrayUtils {
   //    Napisz metodę, która zwróci tablicę String[] zawierającą pierwsze 5 liter alfabetu

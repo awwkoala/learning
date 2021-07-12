@@ -1,4 +1,4 @@
-package basic;
+package com.github.awwkoala.learning.basic;
 
 import org.assertj.core.api.Assertions;
 import org.testng.annotations.BeforeClass;
@@ -39,16 +39,18 @@ public class LoopsTest {
   public void testTurnedAroundIntsSeparateLines() {
     String expectedResult = "3\n2\n1\n";
     String actualResult = loops.turnedAroundIntsSeparateLines(d);
-    Assertions.assertThat(actualResult).describedAs("every character of the integer " + d + "is printed " +
-      "on a separate line").isEqualTo(expectedResult);
+    Assertions.assertThat(actualResult)
+      .describedAs("every character of the integer %d is printed on a separate line", d)
+      .isEqualTo(expectedResult);
   }
 
   @Test
   public void testTurnedAroundIntsSeparateLinesOnlyOne() {
     String expectedResult = "5\n";
     String actualResult = loops.turnedAroundIntsSeparateLines(a);
-    Assertions.assertThat(actualResult).describedAs("provided integer with one character is printed " +
-      "on a separate line").isEqualTo(expectedResult);
+    Assertions.assertThat(actualResult)
+      .describedAs("provided integer with one character is printed on a separate line")
+      .isEqualTo(expectedResult);
   }
 
   @Test
@@ -124,8 +126,9 @@ public class LoopsTest {
     int[] array = {1};
     String expectedResult = "[1]";
     String actualResult = loops.printInts(array);
-    Assertions.assertThat(actualResult).describedAs("integers array with only one component is printed as " +
-      expectedResult).isEqualTo(expectedResult);
+    Assertions.assertThat(actualResult)
+      .describedAs("integers array with only one component is printed as " + expectedResult)
+      .isEqualTo(expectedResult);
   }
 
   @Test
@@ -133,8 +136,9 @@ public class LoopsTest {
     int[] testingArray = {5, 4, 3, 2, 1};
     int[] expectedArray = {1, 2, 3, 4, 5};
     int[] actualArray = loops.sortArray(testingArray);
-    Assertions.assertThat(actualArray).describedAs("integers array with only positive numbers is sorted " +
-      "from minimum to maximum value").isEqualTo(expectedArray);
+    Assertions.assertThat(actualArray)
+      .describedAs("integers array with only positive numbers is sorted from minimum to maximum value")
+      .isEqualTo(expectedArray);
   }
 
   @Test
@@ -142,8 +146,9 @@ public class LoopsTest {
     int[] testingArray = {-1, -2, -3, -4, -5};
     int[] expectedArray = {-5, -4, -3, -2, -1};
     int[] actualArray = loops.sortArray(testingArray);
-    Assertions.assertThat(actualArray).describedAs("integers array with only negative numbers is sorted " +
-      "from minimum to maximum value").isEqualTo(expectedArray);
+    Assertions.assertThat(actualArray)
+      .describedAs("integers array with only negative numbers is sorted from minimum to maximum value")
+      .isEqualTo(expectedArray);
   }
 
   @Test
@@ -151,8 +156,9 @@ public class LoopsTest {
     int[] testingArray = {2, 1, 0, -2, -1};
     int[] expectedArray = {-2, -1, 0, 1, 2};
     int[] actualArray = loops.sortArray(testingArray);
-    Assertions.assertThat(actualArray).describedAs("integers array with both negative and positive numbers " +
-      "is sorted from minimum to maximum value").isEqualTo(expectedArray);
+    Assertions.assertThat(actualArray)
+      .describedAs("integers array with both negative and positive numbers is sorted from minimum to maximum value")
+      .isEqualTo(expectedArray);
   }
 
 }
