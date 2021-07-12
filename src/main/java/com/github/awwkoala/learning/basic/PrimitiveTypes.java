@@ -1,4 +1,4 @@
-package Basics;
+package com.github.awwkoala.learning.basic;
 
 import java.util.Scanner;
 
