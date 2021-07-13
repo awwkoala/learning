@@ -6,34 +6,30 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 public class TriangleTest {
-  private double a = 2;
-  private double b = 3;
-  private double c = 0;
-  private double d = -2;
-  private Triangle trianglePos = new Triangle(a,b);
 
   @Test(expectedExceptions = {IllegalArgumentException.class})
   public void testTriangleBothZero() {
-    new Rectangle(c, c);
+    new Rectangle(0, 0);
   }
 
   @Test(expectedExceptions = {IllegalArgumentException.class})
   public void testTriangleOneZeroOnePos() {
-    new Rectangle(c, a);
+    new Rectangle(0, 2);
   }
 
   @Test(expectedExceptions = {IllegalArgumentException.class})
   public void testTriangleOneZeroOneNeg() {
-    new Rectangle(c, d);
+    new Rectangle(0, -2);
   }
 
   @Test(expectedExceptions = {IllegalArgumentException.class})
   public void testTriangleBothNeg() {
-    new Rectangle(d, d);
+    new Rectangle(-2, -2);
   }
 
   @Test
   public void testGetPerimeter() {
+    Triangle trianglePos = new Triangle(2,3);
     double expectedResult = 8.60555127546399;
     double actualResult = trianglePos.getPerimeter();
     Assertions.assertThat(actualResult)
@@ -43,6 +39,7 @@ public class TriangleTest {
 
   @Test
   public void testGetArea() {
+    Triangle trianglePos = new Triangle(2,3);
     double expectedResult = 3;
     double actualResult = trianglePos.getArea();
     Assertions.assertThat(actualResult)

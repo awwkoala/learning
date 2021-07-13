@@ -4,34 +4,30 @@ import org.assertj.core.api.Assertions;
 import org.testng.annotations.Test;
 
 public class RectangleTest {
-  private double a = 2;
-  private double b = 3;
-  private double c = 0;
-  private double d = -2;
-  private Rectangle rectanglePos = new Rectangle(a, b);
 
   @Test(expectedExceptions = {IllegalArgumentException.class})
   public void testRectangleBothZero() {
-    new Rectangle(c, c);
+    new Rectangle(0, 0);
   }
 
   @Test(expectedExceptions = {IllegalArgumentException.class})
   public void testRectangleOneZeroOnePos() {
-    new Rectangle(c, a);
+    new Rectangle(0, 2);
   }
 
   @Test(expectedExceptions = {IllegalArgumentException.class})
   public void testRectangleOneZeroOneNeg() {
-    new Rectangle(c, d);
+    new Rectangle(0, -2);
   }
 
   @Test(expectedExceptions = {IllegalArgumentException.class})
   public void testRectangleBothNeg() {
-    new Rectangle(d, d);
+    new Rectangle(-2, -2);
   }
 
   @Test
   public void testGetPerimeter() {
+    Rectangle rectanglePos = new Rectangle(2, 3);
     double expectedResult = 10;
     double actualResult = rectanglePos.getPerimeter();
     Assertions.assertThat(actualResult)
@@ -41,6 +37,7 @@ public class RectangleTest {
 
   @Test
   public void testGetArea() {
+    Rectangle rectanglePos = new Rectangle(2, 3);
     double expectedResult = 6;
     double actualResult = rectanglePos.getArea();
     Assertions.assertThat(actualResult)
