@@ -1,16 +1,15 @@
 package com.github.awwkoala.learning.object;
 
-import com.github.awwkoala.learning.figure.Rectangle;
 import org.assertj.core.api.Assertions;
 import org.testng.annotations.Test;
 
 public class SecondRectangleTest {
-  private double a = 2;
-  private double b = 3;
-  private SecondRectangle rectanglePos = new SecondRectangle(a, b);
+  private static final double NUM_A = 2;
+  private static final double NUM_B = 3;
 
   @Test
   public void testCalculateDiagonalPos() {
+    SecondRectangle rectanglePos = new SecondRectangle(NUM_A, NUM_B);
     double expectedResult = 3.605551275463989;
     double actualResult = rectanglePos.calculateDiagonal();
     Assertions.assertThat(actualResult)

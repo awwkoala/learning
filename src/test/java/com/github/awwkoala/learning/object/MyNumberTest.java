@@ -1,14 +1,20 @@
 package com.github.awwkoala.learning.object;
 
 import org.assertj.core.api.Assertions;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class MyNumberTest {
-  private double oddNum = 3;
-  private double evenNum = 4;
-  private double zero = 0;
-  private MyNumber myNumOdd = new MyNumber(oddNum);
-  private MyNumber myNumEven = new MyNumber(evenNum);
+  private static final double ODD_NUM = 3;
+  private static final double EVEN_NUM = 4;
+  private MyNumber myNumOdd;
+  private MyNumber myNumEven;
+
+  @BeforeMethod
+  public void beforeMethod() {
+    myNumOdd = new MyNumber(ODD_NUM);
+    myNumEven = new MyNumber(EVEN_NUM);
+  }
 
   @Test
   public void testIsOddOdd() {

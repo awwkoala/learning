@@ -10,7 +10,7 @@ public class Human {
   private boolean male;
 
   public Human(int age, int weight, int height, String name, boolean male) {
-    if (age <= 0 || weight <= 0 || height <= 0) {
+    if (age < 0 || weight <= 0 || height <= 0) {
       throw new IllegalArgumentException("Numeric attributes cannot be less than or equal to 0.");
     }
     this.age = age;
