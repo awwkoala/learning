@@ -5,9 +5,11 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class CompanyEmployeesTest {
+
   private static final double MONTHLY_SALARY = 30000;
   private static final double HOURLY_SALARY = 25;
   private static final int WORKING_HOURS = 120;
+
   private CompanyEmployees comEmp;
   private FullTime emp1;
   private PartTime emp2;
@@ -20,11 +22,18 @@ public class CompanyEmployeesTest {
   }
 
   @Test
+  public void testPrintEmployees() {
+    comEmp.printEmployees();
+  }
+
+  @Test
   public void testEmployeesAnnualCost() {
     comEmp.getEmployeeList().add(emp1);
     comEmp.getEmployeeList().add(emp2);
     double expectedResult = 414000;
+
     double actualResult = comEmp.employeesAnnualCost();
+
     Assertions.assertThat(actualResult)
       .describedAs("the annual cost of all employees' salaries is calculated correctly")
       .isEqualTo(expectedResult);

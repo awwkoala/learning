@@ -4,6 +4,7 @@ import lombok.Getter;
 
 @Getter
 public class FullTime extends Employee {
+
   private double monthlySalary;
 
   public FullTime(String name, String surname, String job, double monthlySalary) {
@@ -16,6 +17,21 @@ public class FullTime extends Employee {
 
   public double bonus() {
     return monthlySalary * 12 * 0.05;
+  }
+
+  @Override
+  public String getType() {
+    return "Full Time";
+  }
+
+  @Override
+  public double getAnnualCost() {
+    return monthlySalary * 12 + bonus();
+  }
+
+  @Override
+  public String toString() {
+    return "Employee's monthly salary: " + monthlySalary;
   }
 
 }

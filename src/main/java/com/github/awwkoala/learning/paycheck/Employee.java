@@ -3,7 +3,8 @@ package com.github.awwkoala.learning.paycheck;
 import lombok.Getter;
 
 @Getter
-public class Employee {
+public abstract class Employee {
+
   /*  Tworzymy aplikację do zarządzania wypłatami pracowników w pewnej firmie. Istnieją dwa typy pracowników:
     pracownicy pełnoetatowi - otrzymują oni stałą, comiesięczną wypłatę.
     Dodatkowo na koniec roku wypłacany jest im bonus w wysokości 5% rocznego dochodu.
@@ -23,5 +24,9 @@ public class Employee {
     this.surname = surname;
     this.job = job;
   }
+
+  public abstract String getType();
+
+  public abstract double getAnnualCost();
 
 }

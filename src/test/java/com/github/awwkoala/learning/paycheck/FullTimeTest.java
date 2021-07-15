@@ -4,6 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.testng.annotations.Test;
 
 public class FullTimeTest {
+
   private static final double POS_SALARY = 8500;
   private static final double NOT_MIN_SALARY = 2799;
   private static final double MIN_SALARY = 2800;
@@ -29,7 +30,9 @@ public class FullTimeTest {
   public void testFullTimeSalaryMin() {
     FullTime emp1 = new FullTime("Name", "Surname", "job", MIN_SALARY);
     double expectedResult = 2800;
+
     double actualResult = emp1.getMonthlySalary();
+
     Assertions.assertThat(actualResult)
       .describedAs("employee with minimum monthly salary is created")
       .isEqualTo(expectedResult);
@@ -39,7 +42,9 @@ public class FullTimeTest {
   public void testBonus() {
     FullTime emp1 = new FullTime("Name", "Surname", "job", POS_SALARY);
     double expectedResult = 5100;
+
     double actualResult = emp1.bonus();
+
     Assertions.assertThat(actualResult)
       .describedAs("yearly bonus is calculated correctly")
       .isEqualTo(expectedResult);

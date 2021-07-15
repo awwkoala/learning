@@ -7,33 +7,33 @@ import java.util.List;
 
 @Getter
 public class CompanyEmployees {
-  List<Employee> employeeList = new ArrayList<Employee>();
+
+  List<Employee> employeeList = new ArrayList<>();
 
   public void printEmployees() {
-    for (int i = 0; i < employeeList.size(); i++) {
-      System.out.printf("Employee's name: %s %s ", employeeList.get(i).getName(), employeeList.get(i).getSurname());
-      System.out.println("\nEmployee's job: " + employeeList.get(i).getJob());
-      if (employeeList.get(i) instanceof FullTime) {
-        System.out.println("Employee's type: Full Time");
-        System.out.println("Employee's monthly salary: " + ((FullTime) employeeList.get(i)).getMonthlySalary());
-      } else if (employeeList.get(i) instanceof PartTime) {
-        System.out.println("Employee's type: Part Time");
-        System.out.println("Employee's working hours: " + ((PartTime) employeeList.get(i)).getWorkingHours());
-        System.out.println("Employee's hourly salary: " + ((PartTime) employeeList.get(i)).getHourlySalary());
+    for (Employee employee : employeeList) {
+      System.out.printf("Employee's name: %s %s %n", employee.getName(), employee.getSurname());
+      System.out.println("Employee's job: " + employee.getJob());
+      if (employee.getType().equals("Full Time")) {
+        System.out.println("Employee's type: " + employee.getType());
+        System.out.println(employee);
+      } else if (employee.getType().equals("Part Time")) {
+        System.out.println("Employee's type: " + employee.getType());
+        System.out.println(employee);
       }
     }
   }
 
   public double employeesAnnualCost() {
     double annualCost = 0;
-    for (int i = 0; i < employeeList.size(); i++) {
-      if (employeeList.get(i) instanceof FullTime) {
-        annualCost += 12 * ((FullTime) employeeList.get(i)).getMonthlySalary();
-        annualCost += ((FullTime) employeeList.get(i)).bonus();
-      } else if (employeeList.get(i) instanceof PartTime) {
-        annualCost += 12 * ((PartTime) employeeList.get(i)).monthlySalary();
+    for (Employee employee : employeeList) {
+      if (employee.getType().equals("Full Time")) {
+        annualCost += employee.getAnnualCost();
+      } else if (employee.getType().equals("Part Time")) {
+        annualCost += employee.getAnnualCost();
       }
     }
     return annualCost;
   }
+
 }
