@@ -3,6 +3,7 @@ package com.github.awwkoala.learning.shop;
 import lombok.Getter;
 
 public class Cart {
+
   /*  Zdefiniuj klasę Cart (koszyk), która będzie reprezentowała koszyk zakupowy.
     Powinna się w niej znajdować tablica, do której można dodawać produkty.
     Maksymalna liczba produktów w koszyku to 10.
@@ -18,7 +19,7 @@ public class Cart {
   private int cartSize = 0;
 
   public void add(Product product) {
-    if (productCart.length > 10) {
+    if (cartSize >= 10) {
       throw new ArrayIndexOutOfBoundsException("You cannot have more than 10 products in the cart");
     }
     productCart[cartSize] = product;

@@ -4,6 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.testng.annotations.Test;
 
 public class ShopUtilsTest {
+
   private static final double NUM = 8.945021;
 
   @Test
@@ -15,4 +16,5 @@ public class ShopUtilsTest {
       .describedAs("number is rounded correctly")
       .isEqualTo(expectedResult);
   }
+
 }

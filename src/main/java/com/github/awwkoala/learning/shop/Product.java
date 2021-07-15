@@ -2,9 +2,10 @@ package com.github.awwkoala.learning.shop;
 
 import lombok.Getter;
 
-@Getter
 public class Product {
+
   private String name;
+  @Getter
   private double price;
 
   public Product(String name, double price) {
